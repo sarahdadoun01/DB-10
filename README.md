@@ -80,16 +80,17 @@ BEGIN
     );
 END;
 
-## Question 3: Auditing Changes to `ol_quantity` in the `ORDER_LINE` Table
+3. **Question 3: Auditing Changes to `ol_quantity` in the `ORDER_LINE` Table**
 
-This SQL script creates a trigger to audit updates to the `ol_quantity` field in the `ORDER_LINE` table. Each time the `ol_quantity` is updated, the trigger logs the **old value** of `ol_quantity` in a new table called `order_line_row_audit`, along with the `row_num` and the timestamp of the update.
+This SQL script is designed to track and audit updates to the `ol_quantity` field in the `ORDER_LINE` table. The trigger captures the **old value** of `ol_quantity` every time it is updated and logs this information in the `order_line_row_audit` table. This provides an audit trail for changes to `ol_quantity`, along with the `row_num` and the timestamp of the update.
 
-### Features:
-- **Tracks changes to `ol_quantity`**: The trigger monitors updates to the `ol_quantity` field in the `ORDER_LINE` table.
-- **Stores old value**: The old value of `ol_quantity` is saved in the `order_line_row_audit` table.
-- **Audit information**: The table stores the `row_num`, **old_quantity**, and **timestamp** of each update to `ol_quantity`.
+## Features
 
-### SQL Script:
+- **Tracks updates to `ol_quantity`**: The trigger monitors changes to the `ol_quantity` field in the `ORDER_LINE` table.
+- **Stores old value**: Whenever `ol_quantity` is updated, the old value is stored in the `order_line_row_audit` table.
+- **Audit information**: The audit table records the `row_num` (unique identifier), **old quantity**, and the **timestamp** of the update.
+
+## SQL Script
 
 ```sql
 -- Create the order_line_row_audit table to store the audit information
