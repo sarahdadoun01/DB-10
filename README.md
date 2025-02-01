@@ -35,7 +35,7 @@ This project includes SQL scripts that implement auditing mechanisms for trackin
        date_updated DATE,
        from_who VARCHAR2(40)
    );
-
+   
    -- Create the trigger to track changes in the CUSTOMER table
    CREATE OR REPLACE TRIGGER customer_trigger
    AFTER INSERT OR UPDATE OR DELETE ON CUSTOMER
